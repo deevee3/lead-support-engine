@@ -1,0 +1,11 @@
+name = "lead-support-engine-api"
+main = "worker/src/index.js"
+compatibility_date = "2026-11-01"
+# Keep the workers.dev URL alive: the Pages SPA calls
+# https://lead-support-engine-api.mwszghdkkf.workers.dev directly.
+workers_dev = true
+
+[[d1_databases]]
+binding = "LSE_DB"
+database_name = "lead-support-engine"
+database_id = "c91e48ee-88a9-4d17-80b4-b35ecb29cca8"

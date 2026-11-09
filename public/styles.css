@@ -1,0 +1,58 @@
+:root { --ink:#1c1a17; --muted:#6b655c; --line:#e3ded6; --bg:#faf8f4; --card:#fff;
+  --accent:#b84a2b; --accent-soft:#fbeee8; --ok:#2e7d32; --warn:#8d6e00; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+.hidden { display:none !important; }
+.muted { color:var(--muted); }
+.error { color:#b3261e; }
+h1 { font-size:1.4rem; margin:0; }
+h2 { font-size:1.1rem; margin:1.4rem 0 .5rem; }
+h3 { margin:.2rem 0 .6rem; }
+header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem;
+  padding:1.2rem 1.5rem .8rem; border-bottom:1px solid var(--line); }
+.header-right { display:flex; gap:.6rem; align-items:center; }
+.badge { background:var(--accent-soft); color:var(--accent); border:1px solid #ecc9ba;
+  border-radius:999px; padding:.25rem .7rem; font-size:.85rem; white-space:nowrap; }
+.tabs { display:flex; gap:.25rem; padding:.6rem 1.5rem 0; border-bottom:1px solid var(--line); }
+.tabs button { border:1px solid transparent; border-bottom:none; background:none; padding:.55rem .9rem;
+  font-size:.95rem; cursor:pointer; border-radius:.5rem .5rem 0 0; color:var(--muted); }
+.tabs button.active { background:var(--card); color:var(--ink); border-color:var(--line); font-weight:600; }
+.count { background:var(--accent); color:#fff; border-radius:999px; padding:0 .45rem; font-size:.8rem; }
+main { padding:1rem 1.5rem 2.5rem; max-width:1100px; }
+.tab { display:none; } .tab.active { display:block; }
+.stage-counts { display:flex; flex-wrap:wrap; gap:.4rem; margin:.4rem 0 1rem; }
+.stage { background:var(--card); border:1px solid var(--line); border-radius:.5rem; padding:.35rem .6rem; font-size:.85rem; }
+.stage b { margin-right:.3rem; }
+.row { display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; margin:.6rem 0; }
+input, select, textarea { font:inherit; padding:.5rem .6rem; border:1px solid var(--line); border-radius:.45rem; background:#fff; }
+input[type=search] { flex:1; min-width:220px; }
+button { font:inherit; padding:.5rem .9rem; border-radius:.45rem; border:1px solid var(--accent);
+  background:var(--accent); color:#fff; cursor:pointer; }
+button.ghost { background:#fff; color:var(--ink); border-color:var(--line); }
+button.small { padding:.25rem .55rem; font-size:.85rem; }
+button:disabled { opacity:.5; cursor:default; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:.6rem; padding:.9rem 1rem; margin:.6rem 0; }
+.card input, .card textarea { width:100%; margin:.25rem 0; }
+.lead { background:var(--card); border:1px solid var(--line); border-radius:.6rem; padding:.8rem 1rem; margin:.5rem 0; }
+.lead-head { display:flex; justify-content:space-between; gap:.8rem; flex-wrap:wrap; }
+.lead-head b { font-size:1.02rem; }
+.status { font-size:.8rem; border-radius:999px; padding:.15rem .55rem; background:#eee9e2; white-space:nowrap; }
+.status.contact_revealed, .status.approved { background:#e2efdf; color:var(--ok); }
+.status.staged, .status.sent { background:var(--accent-soft); color:var(--accent); }
+.status.disqualified, .status.closed, .status.suppressed { background:#f3e2e2; color:#8a1f1f; }
+.status.replied, .status.fit_call, .status.won, .status.supported { background:#e0ecf5; color:#14517e; }
+.lead .actions { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:.55rem; }
+.lead .meta { color:var(--muted); font-size:.9rem; margin:.25rem 0; }
+.fit { font-size:.9rem; margin:.3rem 0; }
+.fit b { color:var(--accent); }
+pre.msg { white-space:pre-wrap; font:inherit; background:var(--bg); border:1px solid var(--line);
+  border-radius:.45rem; padding:.6rem; font-size:.9rem; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start; }
+@media (max-width:800px){ .two-col { grid-template-columns:1fr; } }
+.chat-msg { margin:.3rem 0; font-size:.92rem; }
+.chat-msg b { text-transform:capitalize; }
+.login { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:1rem; }
+.login-card { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:2rem; max-width:380px; width:100%; }
+.login-card form { display:flex; flex-direction:column; gap:.6rem; margin-top:1rem; }
+footer { padding:1rem 1.5rem 2rem; font-size:.85rem; }
+.check { display:flex; gap:.35rem; align-items:center; font-size:.9rem; }

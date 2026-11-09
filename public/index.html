@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead &amp; Support Engine</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <div class="login-card">
+    <h1>Lead &amp; Support Engine</h1>
+    <p class="muted">Private — one book of names. Sign in to continue.</p>
+    <form id="login-form">
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+    </form>
+    <p id="login-error" class="error hidden"></p>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <div>
+      <h1>Lead &amp; Support Engine</h1>
+      <p class="muted">One record from discovery to support. Machines propose, humans decide.</p>
+    </div>
+    <div class="header-right">
+      <span id="budget-badge" class="badge"></span>
+      <button id="logout" class="ghost">Sign out</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="pipeline" class="active">Pipeline</button>
+    <button data-tab="approvals">Approvals <span id="approval-count" class="count"></span></button>
+    <button data-tab="support">Support</button>
+    <button data-tab="setup">Setup &amp; Seam</button>
+  </nav>
+
+  <main>
+    <section id="tab-pipeline" class="tab active">
+      <div id="stage-counts" class="stage-counts"></div>
+      <div class="row">
+        <input id="lead-search" type="search" placeholder="Search business, vertical, workflow…">
+        <select id="lead-status-filter"><option value="">All statuses</option></select>
+        <label class="check"><input type="checkbox" id="lead-alt-only"> Alternates only</label>
+        <button id="add-lead-open">+ Add lead</button>
+      </div>
+      <form id="add-lead-form" class="card hidden">
+        <h3>Add lead</h3>
+        <input name="business" placeholder="Business name *" required>
+        <input name="vertical" placeholder="Vertical (law, insurance, accounting…)">
+        <input name="workflowTask" placeholder="Repeatable workflow task">
+        <input name="phone" placeholder="Phone">
+        <input name="email" placeholder="Email" type="email">
+        <input name="source" placeholder="Source">
+        <label class="check"><input type="checkbox" name="isAlternate"> Alternate</label>
+        <div><button type="submit">Add</button>
+        <button type="button" id="add-lead-cancel" class="ghost">Cancel</button></div>
+      </form>
+      <div id="lead-list"></div>
+    </section>
+
+    <section id="tab-approvals" class="tab">
+      <p class="muted">Nothing sends without your explicit approval of the exact message and the exact recipient. Staged, never started.</p>
+      <h2>Awaiting decision</h2>
+      <div id="approval-queue"></div>
+      <h2>Decided</h2>
+      <div id="approval-decided"></div>
+    </section>
+
+    <section id="tab-support" class="tab">
+      <div class="two-col">
+        <div>
+          <h2>KB lookup</h2>
+          <p class="muted">Answers come only from the knowledge base. Prices, limits, or policies not in the sources are never stated.</p>
+          <form id="kb-lookup-form" class="row">
+            <input id="kb-query" placeholder="Ask the knowledge base…" required>
+            <button type="submit">Look up</button>
+          </form>
+          <div id="kb-answer" class="card hidden"></div>
+          <h2>Support chats</h2>
+          <form id="new-chat-form" class="row">
+            <input id="chat-visitor" placeholder="Visitor name" required>
+            <input id="chat-business" placeholder="Business (optional)">
+            <button type="submit">Open chat</button>
+          </form>
+          <div id="chat-list"></div>
+        </div>
+        <div>
+          <h2>Knowledge base</h2>
+          <form id="kb-add-form" class="card">
+            <input name="title" placeholder="Page title *" required>
+            <textarea name="content" placeholder="Page content *" required rows="4"></textarea>
+            <button type="submit">Add KB page</button>
+          </form>
+          <div id="kb-list"></div>
+          <h2>Unanswered questions</h2>
+          <div id="unanswered-list" class="muted"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-setup" class="tab">
+      <div class="two-col">
+        <div>
+          <h2>Contact-data seam</h2>
+          <div id="seam-info" class="card"></div>
+          <h2>Reveal log</h2>
+          <div id="reveal-log"></div>
+          <h2>Do-not-contact (absolute)</h2>
+          <form id="dnc-form" class="row">
+            <input id="dnc-name" placeholder="Business name *" required>
+            <input id="dnc-reason" placeholder="Reason">
+            <button type="submit">Add</button>
+          </form>
+          <div id="dnc-list"></div>
+        </div>
+        <div>
+          <h2>Ideal customer profile</h2>
+          <p class="muted">The ICP proposer (JS-capable site reader) is not wired in this rebuild — the profile below is stored as written and reviewed by a human. The proposal is never final on its own.</p>
+          <form id="icp-form" class="card">
+            <textarea id="icp-text" rows="6" placeholder="Who they serve, what pain, what size, what geography…"></textarea>
+            <button type="submit">Save ICP</button>
+          </form>
+          <h2>Budget</h2>
+          <div id="budget-info" class="card"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="muted">Lead &amp; Support Engine — independent rebuild. Provider: stub (counted, $0, not deliverability-verified).</footer>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
